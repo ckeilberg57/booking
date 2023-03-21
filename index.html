@@ -59,7 +59,7 @@ button { border: none; border-radius: 10px; padding: 12px 10px; text-align: cent
   <div>
     <h2>Dr. Demo</h2>
     <input type="text" id="basicDate" placeholder="Select a Date and Time" data-input>
-    <button onclick="myFunction()">Schedule</button>
+    <button onclick="myFunction()">Generate One-Time Virtual Consultation</button>
     <p id="Book"></p>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -70,11 +70,11 @@ $("#basicDate").flatpickr({
     dateFormat: "F, d Y H:i"
 });
   </script>
-    <script>
-function myFunction() {
-  document.getElementById("book").innerHTML = "You Booked a Virtual Consultation<p><a href = https://outlook.office.com/calendar/0/deeplink/compose?rru=addevent&path=%2Fcalendar%2Faction%2Fcompose&startdt=2022-11-02T19%3A00%3A00Z&enddt=2022-11-02T20%3A00%3A00Z&subject=Team%20Manu%20-%20Virtual%20Expert%20Session&body=https%3A%2F%2Fmanu-demo.ck-collab-engtest.com%2Fwebapp%2F%23%2F%3Fconference%3Dmanu8675309%26name%3D%26callType%3Dvideo%26role%3Dguest%20&location=Team%20Manu%20Virtual%20Meeting%20Room&allday=false&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent'>Add to Outlook</a></p>";
-}
-</script>
+  <script>
+    function myFunction() {
+    document.getElementById("Book").innerHTML = "You Booked a One-Time Virtual Consultation<p><a href = https://outlook.office.com/calendar/0/deeplink/compose?rru=addevent&path=%2Fcalendar%2Faction%2Fcompose&startdt=2022-11-02T19%3A00%3A00Z&enddt=2022-11-02T20%3A00%3A00Z&subject=Team%20Manu%20-%20Virtual%20Expert%20Session&body=https%3A%2F%2Fmanu-demo.ck-collab-engtest.com%2Fwebapp%2F%23%2F%3Fconference%3Dmanu8675309%26name%3D%26callType%3Dvideo%26role%3Dguest%20&location=Team%20Manu%20Virtual%20Meeting%20Room&allday=false&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent'>Add to Your Calendar</a></p>";
+  }
+  </script>
 
 </body>
 </html>
