@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PHealth Demo Booking</title>
+  <style>
+    body:after {
+      content: "";
+      position: fixed;
+      /* stretch a fixed position to the whole screen */
+      top: 0;
+      height: 100vh;
+      /* fix for mobile browser address bar appearing disappearing */
+      left: 0;
+      right: 0;
+      z-index: -1;
+      /* needed to keep in the background */
+      background: url(Manufacturing.jpg) center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    div#video-container {
+      display: none;
+    }
+
+    div.video-controls {
+      display: block;
+      position: absolute;
+      bottom: 35px;
+      color: #cdcdcd;
+    }
+
+    div.video-controls i {
+      opacity: 0.4;
+      font-size: 25px;
+      background-color: rgba(30, 30, 30, .8);
+      padding: 10px;
+      border-radius: 50%;
+      z-index: 10000;
+    }
+
+    div.video-controls i:hover {
+      cursor: pointer;
+      opacity: 1.0;
+    }
+
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <h1 class="text-center">
+    <img src="TeamManu-OnCall.svg" alt="Ask A Expert">
+  </h1>
+      <div class="container">
+        <a id="btn-connect-translator" href="https://ckeilberg57.github.io/datatime" class="btn btn-primary btn-lg"
+          type="button" title="Schedule an Appointment"
+          onclick="window.open('https://ckeilberg57.github.io/datatime','popup','top=0,left=1600,width=950,height=800,scrollbars=yes,resizable=no'); return false;">
+          Schedule an Appointment
+        </a>
+      </div>
+</body>
+
+<script>
+  flatpickr("#datetime", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+  });
+</script>
+
+</html>
