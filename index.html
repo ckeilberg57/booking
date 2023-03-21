@@ -46,7 +46,7 @@
   50% { background-color: #00FF00; box-shadow: 0 0 40px #00FF00; }
   100% { background-color: #008F00; box-shadow: 0 0 3px #008F00; }
 }
-body { text-align: center;background: #fce1b2;}
+body { text-align: center;background: #0A2136;}
 img { width: 450px;border-radius: 80px;}
 input { border: 2px solid whitesmoke;border-radius: 20px; padding: 12px 10px; text-align: center; width: 250px;}
 button { border: none; border-radius: 10px; padding: 12px 10px; text-align: center; cursor: pointer;  background: coral; color: whitesmoke;}
@@ -54,12 +54,12 @@ button { border: none; border-radius: 10px; padding: 12px 10px; text-align: cent
 </head>
 <body>
 <img src="Scheduling.png" alt="Team Manu Scheduling">
-  <h1>Book an appointment with a demo provider</h1>
+  <h1>Schedule a virtual consultation</h1>
   <hr>
   <div>
     <h2>Dr. Demo</h2>
     <input type="text" id="basicDate" placeholder="Select a Date and Time" data-input>
-    <button onclick="myFunction()">Book with Dr. Demo</button>
+    <button onclick="myFunction()">Schedule</button>
     <p id="Book"></p>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -72,7 +72,7 @@ $("#basicDate").flatpickr({
   </script>
     <script>
 function myFunction() {
-  document.getElementById("book").innerHTML = "You Booked a Scheduled Session!<p><a href = https://outlook.office.com/calendar/0/deeplink/compose?rru=addevent&path=%2Fcalendar%2Faction%2Fcompose&startdt=2022-11-02T19%3A00%3A00Z&enddt=2022-11-02T20%3A00%3A00Z&subject=Team%20Manu%20-%20Virtual%20Expert%20Session&body=https%3A%2F%2Fmanu-demo.ck-collab-engtest.com%2Fwebapp%2F%23%2F%3Fconference%3Dmanu8675309%26name%3D%26callType%3Dvideo%26role%3Dguest%20&location=Team%20Manu%20Virtual%20Meeting%20Room&allday=false&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent'>Add to Outlook</a></p>";
+  document.getElementById("book").innerHTML = "You Booked a Virtual Consultation<p><a href = https://outlook.office.com/calendar/0/deeplink/compose?rru=addevent&path=%2Fcalendar%2Faction%2Fcompose&startdt=2022-11-02T19%3A00%3A00Z&enddt=2022-11-02T20%3A00%3A00Z&subject=Team%20Manu%20-%20Virtual%20Expert%20Session&body=https%3A%2F%2Fmanu-demo.ck-collab-engtest.com%2Fwebapp%2F%23%2F%3Fconference%3Dmanu8675309%26name%3D%26callType%3Dvideo%26role%3Dguest%20&location=Team%20Manu%20Virtual%20Meeting%20Room&allday=false&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent'>Add to Outlook</a></p>";
 }
 </script>
 
