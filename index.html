@@ -1,76 +1,80 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>PHealth Demo Booking</title>
-  <style>
-    body:after {
-      content: "";
-      position: fixed;
-      /* stretch a fixed position to the whole screen */
-      top: 0;
-      height: 100vh;
-      /* fix for mobile browser address bar appearing disappearing */
-      left: 0;
-      right: 0;
-      z-index: -1;
-      /* needed to keep in the background */
-      background: url(Manufacturing.jpg) center center;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-    }
+  <title>PHealth Booking Demo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/themes/dark.css">
+<style>
+  .button {
+  background-color: #004A7F;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 3000ms infinite;
+}
+@-webkit-keyframes glowing {
+  0% { background-color: #68BC36; -webkit-box-shadow: 0 0 3px #68BC36; }
+  50% { background-color: #00FF00; -webkit-box-shadow: 0 0 40px #00FF00; }
+  100% { background-color: #68BC36; -webkit-box-shadow: 0 0 3px #68BC36; }
+}
 
-    div#video-container {
-      display: none;
-    }
+@-moz-keyframes glowing {
+  0% { background-color: #68BC36; -moz-box-shadow: 0 0 3px #68BC36; }
+  50% { background-color: #00FF00; -moz-box-shadow: 0 0 40px #00FF00; }
+  100% { background-color: #68BC36; -moz-box-shadow: 0 0 3px #68BC36; }
+}
 
-    div.video-controls {
-      display: block;
-      position: absolute;
-      bottom: 35px;
-      color: #cdcdcd;
-    }
+@-o-keyframes glowing {
+  0% { background-color: #68BC36; box-shadow: 0 0 3px #68BC36; }
+  50% { background-color: #00FF00; box-shadow: 0 0 40px #00FF00; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
 
-    div.video-controls i {
-      opacity: 0.4;
-      font-size: 25px;
-      background-color: rgba(30, 30, 30, .8);
-      padding: 10px;
-      border-radius: 50%;
-      z-index: 10000;
-    }
-
-    div.video-controls i:hover {
-      cursor: pointer;
-      opacity: 1.0;
-    }
-
-  </style>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+@keyframes glowing {
+  0% { background-color: #68BC36; box-shadow: 0 0 3px #68BC36; }
+  50% { background-color: #00FF00; box-shadow: 0 0 40px #00FF00; }
+  100% { background-color: #008F00; box-shadow: 0 0 3px #008F00; }
+}
+body { text-align: center;background: #fce1b2;}
+img { width: 450px;border-radius: 80px;}
+input { border: 2px solid whitesmoke;border-radius: 20px; padding: 12px 10px; text-align: center; width: 250px;}
+button { border: none; border-radius: 10px; padding: 12px 10px; text-align: center; cursor: pointer;  background: coral; color: whitesmoke;}
+</style>
 </head>
-
 <body>
-  <h1 class="text-center">
-    <img src="TeamManu-OnCall.svg" alt="Ask A Expert">
-  </h1>
-      <div class="container">
-        <a id="btn-connect-translator" href="https://ckeilberg57.github.io/datatime" class="btn btn-primary btn-lg"
-          type="button" title="Schedule an Appointment"
-          onclick="window.open('https://ckeilberg57.github.io/datatime','popup','top=0,left=1600,width=950,height=800,scrollbars=yes,resizable=no'); return false;">
-          Schedule an Appointment
-        </a>
-      </div>
-</body>
-
-<script>
-  flatpickr("#datetime", {
+<img src="Scheduling.png" alt="Team Manu Scheduling">
+  <h1>Book an appointment with a demo provider</h1>
+  <hr>
+  <div>
+    <h2>Dr. Demo</h2>
+    <input type="text" id="basicDate" placeholder="Select a Date and Time" data-input>
+    <button onclick="myFunction()">Book with Dr. Demo</button>
+    <p id="Book"></p>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+  <script>
+$("#basicDate").flatpickr({
     enableTime: true,
-    dateFormat: "Y-m-d H:i",
-  });
+    dateFormat: "F, d Y H:i"
+});
+  </script>
+    <script>
+function myFunction() {
+  document.getElementById("book").innerHTML = "You Booked a Scheduled Session!<p><a href = https://outlook.office.com/calendar/0/deeplink/compose?rru=addevent&path=%2Fcalendar%2Faction%2Fcompose&startdt=2022-11-02T19%3A00%3A00Z&enddt=2022-11-02T20%3A00%3A00Z&subject=Team%20Manu%20-%20Virtual%20Expert%20Session&body=https%3A%2F%2Fmanu-demo.ck-collab-engtest.com%2Fwebapp%2F%23%2F%3Fconference%3Dmanu8675309%26name%3D%26callType%3Dvideo%26role%3Dguest%20&location=Team%20Manu%20Virtual%20Meeting%20Room&allday=false&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent'>Add to Outlook</a></p>";
+}
 </script>
 
+</body>
 </html>
