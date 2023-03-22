@@ -1,72 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.getElementsByTagName("html")[0].className += " js";</script>
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/themes/dark.css">
-  <title>PHealth Booking Demo</title>
-<style>
-  .button {
-  background-color: #004A7F;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  border: none;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Arial;
-  font-size: 20px;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  -webkit-animation: glowing 1500ms infinite;
-  -moz-animation: glowing 1500ms infinite;
-  -o-animation: glowing 1500ms infinite;
-  animation: glowing 3000ms infinite;
-}
-@-webkit-keyframes glowing {
-  0% { background-color: #68BC36; -webkit-box-shadow: 0 0 3px #68BC36; }
-  50% { background-color: #00FF00; -webkit-box-shadow: 0 0 40px #00FF00; }
-  100% { background-color: #68BC36; -webkit-box-shadow: 0 0 3px #68BC36; }
-}
-
-@-moz-keyframes glowing {
-  0% { background-color: #68BC36; -moz-box-shadow: 0 0 3px #68BC36; }
-  50% { background-color: #00FF00; -moz-box-shadow: 0 0 40px #00FF00; }
-  100% { background-color: #68BC36; -moz-box-shadow: 0 0 3px #68BC36; }
-}
-
-@-o-keyframes glowing {
-  0% { background-color: #68BC36; box-shadow: 0 0 3px #68BC36; }
-  50% { background-color: #00FF00; box-shadow: 0 0 40px #00FF00; }
-  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-}
-
-@keyframes glowing {
-  0% { background-color: #68BC36; box-shadow: 0 0 3px #68BC36; }
-  50% { background-color: #00FF00; box-shadow: 0 0 40px #00FF00; }
-  100% { background-color: #008F00; box-shadow: 0 0 3px #008F00; }
-}
-body { text-align: center;background: #0A2136; color: #ffffff;}
-img { width: 450px;border-radius: 80px;}
-input { border: 2px solid whitesmoke;border-radius: 20px; padding: 12px 10px; text-align: center; width: 250px;}
-button { border: none; border-radius: 10px; padding: 12px 10px; text-align: center; cursor: pointer;  background: coral; color: whitesmoke;}
-</style>
+  <title>Schedule Template | CodyHouse</title>
 </head>
 <body>
-<img src="phealthlogo.png" alt="PHealth Demo Scheduling">
-  <h1>Schedule a virtual consultation</h1>
-  <div>
-    <h2>Dr. Demo</h2>
-    <input type="text" id="basicDate" placeholder="Select a Date and Time" data-input>
-    <button onclick="myFunction()">Generate One-Time Virtual Consultation</button>
-    <p id="Book"></p>
-  </div>
-  <h3>
-    <div class="cd-schedule cd-schedule--loading margin-top-lg margin-bottom-lg js-cd-schedule">
+  <header class="cd-main-header text-center flex flex-column flex-center">
+    <p class="margin-top-md margin-bottom-xl">👈 <a class="cd-article-link" href="https://codyhouse.co/gem/schedule-template">Article &amp; Download</a></p>
+
+    <h1 class="text-xl">Schedule Template</h1>
+  </header>
+
+  <div class="cd-schedule cd-schedule--loading margin-top-lg margin-bottom-lg js-cd-schedule">
     <div class="cd-schedule__timeline">
       <ul>
         <li><span>09:00</span></li>
@@ -253,21 +201,8 @@ button { border: none; border-radius: 10px; padding: 12px 10px; text-align: cent
   
     <div class="cd-schedule__cover-layer"></div>
   </div> <!-- .cd-schedule -->
-  </h3>
+
   <script src="assets/js/util.js"></script> <!-- util functions included in the CodyHouse framework -->
   <script src="assets/js/main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
-  <script>
-$("#basicDate").flatpickr({
-    enableTime: true,
-    dateFormat: "F, d Y H:i"
-});
-  </script>
-  <script>
-    function myFunction() {
-    document.getElementById("Book").innerHTML = "You Booked a One-Time Virtual Consultation<p><a href = https://outlook.office.com/calendar/0/deeplink/compose?rru=addevent&path=%2Fcalendar%2Faction%2Fcompose&startdt=2022-11-02T19%3A00%3A00Z&enddt=2022-11-02T20%3A00%3A00Z&subject=Team%20Manu%20-%20Virtual%20Expert%20Session&body=https%3A%2F%2Fmanu-demo.ck-collab-engtest.com%2Fwebapp%2F%23%2F%3Fconference%3Dmanu8675309%26name%3D%26callType%3Dvideo%26role%3Dguest%20&location=Team%20Manu%20Virtual%20Meeting%20Room&allday=false&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent'>Add to Your Calendar</a></p>";
-  }
-  </script>
 </body>
 </html>
