@@ -27,12 +27,12 @@
     <img src="phealthlogo.png" alt="PHealth Demo Scheduling"><p></p>
     <h1>Your Weekly View</h1>
     <h4>
-    <input type="text" id="basicDate" placeholder="Select a Date and Time" data-input>                    <button onclick="displayIframe()">ScheduleMe</button>
+    <input type="text" id="basicDate" placeholder="Select a Date and Time" data-input>                    <button id="button">Schedule Appt</button>
     <p id="schedule"></p>
     </h4>
   </header>
   
-  <div id="iframeDisplay"></div>
+  <div id="iframeHolder"></div>
 
   <div class="cd-schedule cd-schedule--loading margin-top-lg margin-bottom-lg js-cd-schedule">
     <div class="cd-schedule__timeline">
@@ -194,11 +194,15 @@ $("#basicDate").flatpickr({
     dateFormat: "F, d Y H:i"
 });
   </script>
-<script>
-    function displayIframe() {
-        document.getElementById("iframeDisplay").innerHTML = <iframe src="https://docs.pexip.com" height=\"200\" width=\"300\" ></iframe>";
-
-    }
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('#button').click(function(){ 
+        if(!$('#iframe').length) {
+                $('#iframeHolder').html('<iframe id="iframe" src="//player.vimeo.com/video/90429499" width="700" height="450"></iframe>');
+        }
+    });   
+});
 </script>
 </body>
 </html>
