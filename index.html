@@ -19,10 +19,7 @@
     padding:20px;
   }
   img { width: 450px;border-radius: 80px;}
-  function postYourAdd () {
-    var iframe = $("#forPostyouradd");
-    iframe.attr("src", iframe.data("src")); 
-}
+
 </style>
 </head>
 <body>
@@ -30,10 +27,12 @@
     <img src="phealthlogo.png" alt="PHealth Demo Scheduling"><p></p>
     <h1>Your Weekly View</h1>
     <h4>
-    <input type="text" id="basicDate" placeholder="Select a Date and Time" data-input>                    <button id="postYourAdd" onclick="postYourAdd()">Schedule</button>
+    <input type="text" id="basicDate" placeholder="Select a Date and Time" data-input>                    <button onclick="displayIframe()">ScheduleMe</button>
     <p id="schedule"></p>
     </h4>
   </header>
+  
+  <div id="iframeDisplay"></div>
 
   <div class="cd-schedule cd-schedule--loading margin-top-lg margin-bottom-lg js-cd-schedule">
     <div class="cd-schedule__timeline">
@@ -195,7 +194,11 @@ $("#basicDate").flatpickr({
     dateFormat: "F, d Y H:i"
 });
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <iframe id="forPostyouradd" data-src="http://www.w3schools.com" src="about:blank" width="500" height="200" style="background:#ffffff"></iframe>
+<script>
+    function displayIframe() {
+        document.getElementById("iframeDisplay").innerHTML = "<iframe src=https://docs.pexip.com" height=\"200\" width=\"300\" ></iframe>";
+
+    }
+</script>
 </body>
 </html>
