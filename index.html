@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.getElementsByTagName("html")[0].className += " js";</script>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <title>PHealth Booking Demo</title>
 <style>
   body {
@@ -24,13 +26,24 @@
   <header class="cd-main-header text-center flex flex-column flex-center">
     <img src="phealthlogo.png" alt="PHealth Demo Scheduling"><p></p>
     <h1>Your Weekly View</h1>
-    <h4>
-    <button id="button">Schedule Appt</button>
-    <p id="schedule"></p>
-    </h4>
+    <div class="container">
+        <h1>St. Jude's Hospital Appointment Scheduler</h1>
+        <button id="scheduleBtn">Schedule New Appointment</button>
+        <div id="appointmentForm" class="hidden">
+            <p>Appointment ID: <span id="alias"></span></p>
+            <label for="firstName">Patient First Name:</label>
+            <input type="text" id="firstName">
+            <label for="lastName">Patient Last Name:</label>
+            <input type="text" id="lastName">
+            <label for="datePicker">Select Date & Time:</label>
+            <input type="text" id="datePicker">
+            <label for="email">Patient Email:</label>
+            <input type="text" id="email">
+            <label for="phone">Patient Phone Number:</label>
+            <input type="text" id="phone">
+            <button id="submitBtn">Submit</button>
+        </div>
   </header>
-  
-  <div id="iframeHolder" style="position:relative; top:30px; left: 41%;"></div>
 
   <div class="cd-schedule cd-schedule--loading margin-top-lg margin-bottom-lg js-cd-schedule">
     <div class="cd-schedule__timeline">
@@ -184,15 +197,8 @@
 
   <script src="assets/js/util.js"></script> <!-- util functions included in the CodyHouse framework -->
   <script src="assets/js/main.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-<script type="text/javascript">
-$(function(){
-    $('#button').click(function(){ 
-        if(!$('#iframe').length) {
-                $('#iframeHolder').html('<iframe id="iframe" src="//ckeilberg57.github.io/fortesting/?" width="470" height="550"></iframe>');
-        }
-    });   
-});
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="scripts.js"></script>
 </script>
 </body>
 </html>
