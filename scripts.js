@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         div.style.padding = '10px';
         div.style.margin = '10px';
         div.style.cursor = 'pointer';
-        div.innerHTML = `Hello, for St. Jude's hospital. ${firstName.value} has a consultation at ${date} and ${time}. Please call XXXXXXXX if cancelation or reschedule is needed.`;
+        div.innerHTML = `${firstName.value} has a consultation at ${date} and ${time} with Pexip Health Demo. Please call +1XXXXXXXXXX if cancelation or reschedule is needed.`;
         div.addEventListener('dblclick', () => {
             appointmentSummary.textContent = `Appointment Summary:\nPatient: ${firstName.value} ${lastName.value}\nDate: ${date}\nTime: ${time}\nEmail: ${email.value}\nPhone: ${phone.value}`;
             appointmentModal.classList.remove('hidden');
