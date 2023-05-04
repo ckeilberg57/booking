@@ -200,5 +200,20 @@
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="scripts.js"></script>
+  <script type="text/javascript">
+    
+    function results(){
+      //  var sessionType = document.getElementById('sessionType').value;
+      var randomAlias = document.getElementById('alias').value;
+      var patientLname = document.getElementById('lastname').value;
+      var patientID = document.getElementById('patientID').value;
+
+      document.write('<html><head><title>Start Your Video Session</title><link rel="stylesheet" type="text/css" href="css/style.css"></head><body>')
+      document.write('<div class="form"><div class="title">Your Consultation is Created')
+      document.write('<div class="subtitle">Link to Video Consult<br><br><a class="resultlink" href="https://cklab-edges.ck-collab-engtest.com/webapp/#/?conference=apptmd' + alias +'&name=' + lastname + '%20' + firstname + '&callType=video&role=host&pin=2023" target="_blank">Click Here to add to calendar</a><br></div><br><br>')
+      document.write('</body></html>') 
+
+    }
+  </script>
 </body>
 </html>
