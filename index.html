@@ -30,6 +30,7 @@
         <button id="scheduleBtn">Schedule New Appointment</button>
         <div id="appointmentForm" class="hidden">
             <p>Appointment ID: <span id="alias"></span></p>
+            <input type="hidden" id="apptId">
             <label for="firstName">Patient First Name:</label>
             <input type="text" id="firstName">
             <label for="lastName">Patient Last Name:</label>
@@ -96,7 +97,7 @@
   
           <ul>
 
-            <li class="cd-schedule__event">
+            <li id="scheduled-appt" class="cd-schedule__event hidden">
               <a data-start="11:30" data-end="13:00"  data-content="event-pandemic" data-event="event-4" href="#0">
                 <em class="cd-schedule__name">Virtual Pandemic Screening</em>
               </a>
@@ -115,7 +116,7 @@
           <div class="cd-schedule__top-info"><span>Wednesday</span></div>
   
           <ul>
-            <li class="cd-schedule__event">
+            <li class="cd-schedule__event hidden">
               <a data-start="09:00" data-end="10:15" data-content="event-pandemic" data-event="event-4" href="#0">
                 <em class="cd-schedule__name">Virtual Pandemic Screening</em>
               </a>

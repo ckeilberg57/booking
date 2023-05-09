@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const scheduleBtn = document.getElementById('scheduleBtn');
     const appointmentForm = document.getElementById('appointmentForm');
     const alias = document.getElementById('alias');
+    const apptId = document.getElementById('apptId');
     const firstName = document.getElementById('firstName');
     const lastName = document.getElementById('lastName');
     const datePicker = document.getElementById('datePicker');
@@ -46,8 +47,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     scheduleBtn.addEventListener('click', () => {
+        let randomAlias = generateRandomAlias();
         appointmentForm.classList.toggle('hidden');
-        alias.textContent = generateRandomAlias();
+        alias.textContent = randomAlias;
+        apptId.value = randomAlias;
     });
 
     const flatpickrInstance = flatpickr(datePicker, {
@@ -66,8 +69,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const date = selectedDate.toLocaleDateString();
         const time = selectedDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-        const appointmentDiv = createAppointmentDiv(date, time);
-        calendar.appendChild(appointmentDiv);
+        const scheduledAppt = document.querySelector("#scheduled-appt");
+
+        scheduledAppt.setAttribute('data-conference-name', `ph${apptId.value}`);
+        scheduledAppt.setAttribute('data-participant-name', `${firstName.value} ${lastName.value}`);
+        scheduledAppt.setAttribute('data-participant-email', `${email.value}`);
+        scheduledAppt.setAttribute('data-participant-phone', `${phone.value}`);
+        scheduledAppt.classList.remove('hidden');
 
         firstName.value = '';
         lastName.value = '';
@@ -77,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
         appointmentForm.classList.add('hidden');
     });
 
-    smsReminderBtn.addEventListener('click', () => {
+    smsReminderBtn?.addEventListener('click', () => {
         alert('SMS reminder sent to patient.');
         closeModal();
     });
