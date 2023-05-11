@@ -301,7 +301,7 @@
 			if (httpRequest.readyState === XMLHttpRequest.DONE) {
 	          if (httpRequest.status === 200) {
 	      	    self.modal.getElementsByClassName('cd-schedule-modal__event-info')[0].innerHTML = self.getEventContent(httpRequest.responseText);
-				let pexipUrl = `https://cklab-edges.ck-collab-engtest.com/webapp3/?name=${self.modal.getAttribute("data-participant-name").replace(" ", "%20")}&conference=${self.modal.getAttribute("data-conference-name")}&callType=video&role=host&pin=2023`
+				let pexipUrl = `https://cklab-edges.ck-collab-engtest.com/?name=${self.modal.getAttribute("data-participant-name").replace(" ", "%20")}&conference=${self.modal.getAttribute("data-conference-name")}&callType=video&role=host&pin=2023`
 				self.modal.querySelector('a').setAttribute('href', pexipUrl);
 	      	    Util.addClass(self.modal, 'cd-schedule-modal--content-loaded');
 	        }
