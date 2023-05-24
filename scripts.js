@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const calendar = document.getElementById('calendar');
     const appointmentModal = document.getElementById('appointmentModal');
     const appointmentSummary = document.getElementById('appointmentSummary');
-    const smsReminderBtn = document.getElementById('smsReminderBtn');
 
     function generateRandomAlias() {
         let result = '';
@@ -83,11 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
         email.value = '';
         phone.value = '';
         appointmentForm.classList.add('hidden');
-    });
-
-    smsReminderBtn?.addEventListener('click', () => {
-        alert('SMS reminder sent to patient.');
-        closeModal();
     });
 
     window.addEventListener('click', (event) => {

@@ -99,7 +99,45 @@
 			event.preventDefault();
 			if( !self.animating ) self.closeModal();
 		});
+
+		// Initialize Send SMS Reminder to Patient button click handler
+		this.modal.querySelector('.send-reminder').addEventListener("click", this.sendPatientReminderHandler.bind(self));
 	};
+
+	ScheduleTemplate.prototype.sendSmsMessage = function(to, message) {
+		// FIXME: Chris, put your Twilio credentials here
+		const TWILIO_ACCOUNT_SID = "Acds9f7DSFsdfsd987324987dfsdf";
+		const TWILIO_API_KEY_SID = "OIDFsdfklj3249f8sd08234908dlkK"
+		const TWILIO_API_KEY_SECRET = "LOCIfiosejf392dsf0sd92fsdlkj23";
+		const TWILIO_PHONE_NUMBER = "+18555551212"
+
+		let data = new FormData();
+		data.append("From", TWILIO_PHONE_NUMBER);
+		data.append("To", to);
+		data.append("Body", message);
+
+		let dataString = [...data.entries()]
+			.map(d => `${encodeURIComponent(d[0])}=${encodeURIComponent(d[1])}`)
+			.join("&");
+
+		let xhr = new XMLHttpRequest();
+		xhr.addEventListener("load", (evt) => {
+			console.log(evt);
+			alert("Reminder sent.")
+		});
+		xhr.open("POST", `https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json`);
+		xhr.setRequestHeader("Authorization", `Basic ${btoa(TWILIO_API_KEY_SID + ":" + TWILIO_API_KEY_SECRET)}`);
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhr.send(dataString);
+	}
+
+	ScheduleTemplate.prototype.sendPatientReminderHandler = function(evt) {
+		evt.preventDefault();
+
+		let joinUrl = this.modal.querySelector('a.join-link').getAttribute('href');
+		let message = `Your appointment with Dr. Demo is getting ready to begin. Please join by clicking the link: ${joinUrl}`;
+		this.sendSmsMessage(this.modal.getAttribute("data-participant-phone"), message);
+	}
 
 	ScheduleTemplate.prototype.openModal = function(target) {
 		var self = this;
@@ -302,7 +340,7 @@
 	          if (httpRequest.status === 200) {
 	      	    self.modal.getElementsByClassName('cd-schedule-modal__event-info')[0].innerHTML = self.getEventContent(httpRequest.responseText);
 				let pexipUrl = `https://cklab-edges.ck-collab-engtest.com/?conference=${self.modal.getAttribute("data-conference-name")}&name=${self.modal.getAttribute("data-participant-name").replace(" ", "%20")}&callType=video&role=host&pin=2023&join=1`
-				self.modal.querySelector('a').setAttribute('href', pexipUrl);
+				self.modal.querySelector('a.join-link').setAttribute('href', pexipUrl);
 	      	    Util.addClass(self.modal, 'cd-schedule-modal--content-loaded');
 	        }
 	      }
