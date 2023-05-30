@@ -122,7 +122,7 @@
 		evt.preventDefault();
 
 		let joinUrl = this.modal.querySelector('a.join-link').getAttribute('href');
-		let message = `${"data-conference-name"} your appointment with Dr. Demo is getting ready to begin. Please join by clicking the link: ${joinUrl}`;
+		let message = `Your appointment with Dr. Demo is getting ready to begin. Please join by clicking the link: ${joinUrl}`;
 		this.sendSmsMessage(this.modal.getAttribute("data-participant-phone"), message);
 	}
 
