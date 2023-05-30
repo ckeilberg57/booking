@@ -105,31 +105,18 @@
 	};
 
 	ScheduleTemplate.prototype.sendSmsMessage = function(to, message) {
-		// FIXME: Chris, put your Twilio credentials here
-		const TWILIO_ACCOUNT_SID = "Acds9f7DSFsdfsd987324987dfsdf";
-		const TWILIO_API_KEY_SID = "OIDFsdfklj3249f8sd08234908dlkK"
-		const TWILIO_API_KEY_SECRET = "LOCIfiosejf392dsf0sd92fsdlkj23";
-		const TWILIO_PHONE_NUMBER = "+18555551212"
+        	let data = {to: to, message: message};
 
-		let data = new FormData();
-		data.append("From", TWILIO_PHONE_NUMBER);
-		data.append("To", to);
-		data.append("Body", message);
-
-		let dataString = [...data.entries()]
-			.map(d => `${encodeURIComponent(d[0])}=${encodeURIComponent(d[1])}`)
-			.join("&");
-
-		let xhr = new XMLHttpRequest();
-		xhr.addEventListener("load", (evt) => {
-			console.log(evt);
-			alert("Reminder sent.")
-		});
-		xhr.open("POST", `https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json`);
-		xhr.setRequestHeader("Authorization", `Basic ${btoa(TWILIO_API_KEY_SID + ":" + TWILIO_API_KEY_SECRET)}`);
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xhr.send(dataString);
-	}
+        	let xhr = new XMLHttpRequest();
+        	xhr.addEventListener("load", (evt) => {
+            	console.log(evt);
+            	alert("Reminder sent.")
+        	});
+		// Update Lambda URL
+        	xhr.open("POST", "https://mhnhe3liwbdt4wwpqiiwnamspi0jrdqf.lambda-url.us-east-2.on.aws/");
+        	xhr.setRequestHeader("Content-Type", "application/json");
+        	xhr.send(JSON.stringify(data));
+    	}
 
 	ScheduleTemplate.prototype.sendPatientReminderHandler = function(evt) {
 		evt.preventDefault();
